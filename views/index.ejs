@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/assets/libs/bootstrap/css/bootstrap.css' />
+    <style type="text/css">
+    	body{
+    		padding-top: 60px;
+    	}
+    </style>
+  </head>
+  <body>
+  	<div class="container-fluid">
+  		<div class="row-fluid">
+  			<div class="span12">
+  				<div class="page-header">
+	    				<h1><%= title %></h1>
+	    			</div>
+  			</div>
+  		</div>
+  		<div class="row-fluid">
+  			<div class="span12">
+  				<div class="span4 well well-large">
+  					<div class="page-header">
+	    				<h3>服务器基础信息</h3>
+	    			</div>
+  					<span>服务器名称:<%= os.hostname()%></span><br/>
+	  				<span id="now"></span><br/>
+			    	<span>服务器已运行:<span id="uptime"></span></span><br/>
+			    	<span>服务器操作系统:<%=os.type()%></span><br/>
+			    	<span>服务器运行平台:<%=os.platform()%></span><br/>
+			    	<span>服务器内存总量:<%= (os.totalmem() / (1024*1024*1024)).toFixed(2) %> GB</span><br/>
+			    	<span>服务器位数:<%=os.arch()%>位</span><br/>
+		    		<span>服务器CPU型号:<%= os.cpus()[0].model %></span><br/>
+		    		<span>服务器CPU核心数:<%= os.cpus().length %></span><br/>
+		    		<span>服务器CPU主频:<%= (os.cpus()[0].speed / (1024)).toFixed(2) %> GHZ</span><br/>
+	    		</div>
+	    		<div class="span8 well well-large">
+	    			<div class="page-header">
+	    				<h3>CPU负载情况</h3>
+	    			</div>
+            <div class="autoUpdate" id="cpu" style="height:300px"></div>
+            <div class="page-header">
+              <h3>即时内存消耗信息</h3>
+            </div>
+	    		<div class="autoUpdate" id="timelyData" style="height:300px"></div>
+  			</div>
+  		</div>
+	</div>
+    <script type="text/javascript" src="/assets/libs/seajs/sea.js"></script>
+    <script type="text/javascript">
+    	seajs.use('/assets/javascripts/init');		
+    </script>
+  </body>
+</html>

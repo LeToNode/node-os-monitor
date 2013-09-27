@@ -1,0 +1,23 @@
+{
+  "name": "node-os-monitor",
+  "version": "0.0.1",
+  "keywords": [
+    "os",
+    "server-monitor"
+  ],
+  "author": {
+    "name": "Leton Li",
+    "email": "leton2008@gmail.com"
+  },
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc4",
+    "ejs": "*",
+    "moment":"1.7.0",
+    "pm":"*",
+    "eventproxy":"*",
+    "os-utils":"*"
+  }
+}
